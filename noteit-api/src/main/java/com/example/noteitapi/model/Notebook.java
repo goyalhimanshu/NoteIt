@@ -1,8 +1,6 @@
 package com.example.noteitapi.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.List;
 import java.util.UUID;
 
@@ -14,6 +12,7 @@ public class Notebook {
     private UUID id;
     private String name;
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "notebook", cascade = CascadeType.ALL)
     private List<Note> notes;
 
     public UUID getId() {

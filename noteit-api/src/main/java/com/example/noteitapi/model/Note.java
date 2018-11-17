@@ -1,8 +1,6 @@
 package com.example.noteitapi.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.Null;
 import java.util.Date;
 import java.util.UUID;
@@ -16,6 +14,7 @@ public class Note {
     private String title;
     private String text;
 
+    @ManyToOne(fetch = FetchType.LAZY)
     private Notebook notebook;
 
     private Date lastModifiedOn;
